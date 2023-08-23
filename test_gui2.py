@@ -6,6 +6,8 @@ import ipywidgets as widgets
 import numpy as np
 from matplotlib.widgets import TextBox
 
+import pandas as pd 
+
 def fx_depth(x):
     return x
 
