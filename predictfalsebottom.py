@@ -24,7 +24,7 @@ def falsebottom(_depth, pulseinterval, soundspeed, n, m): # Detect single false 
             dt_false = ((_n+1)*dt_bottom - _m*pulseinterval)
             _bt = dt_false*soundspeed/2
             if _bt > 0 and _bt <= pulseinterval*soundspeed/2.:
-                bt.append({"bottomdepth": _depth, "n": _n, "m": _m, "depth": _bt})
+                bt.append({"bottomdepth": _depth, "n": _n+1, "m": _m, "depth": _bt})
     return bt
 
 def example():
@@ -38,10 +38,15 @@ def example():
     
     print(falsebottom)
 
-    cmap_reversed = matplotlib.colormaps.get_cmap('Blues_r')
-    ax = falsebottom.plot.scatter(x='bottomdepth',y='depth', c='n', colormap=cmap_reversed)
+    cmap_reversed = plt.get_cmap('Blues_r')
+    ax = falsebottom.plot.scatter(x='bottomdepth', y='depth', c='n',
+                                  colormap=cmap_reversed, vmax = 4)
     ax.invert_yaxis()
-    ax.set(xlabel='actual bottomdepth [m]', ylabel='depth [m] (2x distance of ping interval)', title='Nth reflection from accoustic ping')
+    ax.set(xlabel='Actual bottomdepth [m]',
+           ylabel='Depth where false bottom is present in echogram [m]',
+           title='Pulse interval: '+str(pulseinterval)+', soundspeed: '+str(soundspeed))
+    f = plt.gcf().get_axes()[1].set_ylabel('Times the signal hits the bottom')
+    #plt.clim(1, 4)
     plt.show()
 
 if __name__ == "__main__":
