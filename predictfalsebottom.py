@@ -31,7 +31,7 @@ def example():
     bottomdepth = 400 # m
     n = 3 # n'th reflection, 3 means we will see 1st reflection (strong), 2nd reflection (moderate) and 3rd (very weak)
     m = 3
-    soundspeed = 1496 # s
+    soundspeed = 1496 # m/s
     pulseinterval = 0.45 # s
 
     falsebottom = predictbottom(soundspeed, pulseinterval, bottomdepth, n, m)
