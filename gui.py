@@ -117,7 +117,7 @@ class MainWindow(QtWidgets.QMainWindow):
             title='Pulse interval: '+str(pulse_interval)+', soundspeed: '+str(sound_velocity))
         
         # Needs a colorbar
-        #f = self.sc.fig.get_axes()[1].set_ylabel('Times the signal hits the bottom')
+        f = self.sc.fig.get_axes()[1].set_ylabel('Times the signal hits the bottom')
 
         #plt.show()
         self.sc.draw()
